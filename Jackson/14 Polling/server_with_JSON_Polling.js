@@ -29,7 +29,7 @@ var url = require("url"); //to parse url strings
 var counter = 1000; //to count invocations of function(req,res)
 
 //server maintained location of moving box
-var movingBoxLocation = { x: 100, y: 100 }; //will be over-written by clients
+var movingBoxLocation = { x: 50, y: 50 }; //will be over-written by clients
 
 var ROOT_DIR = "html"; //dir to serve static files from
 

@@ -52,8 +52,8 @@ var movingString = {
 var movingBox = {
   x: 50,
   y: 50,
-  width: 100,
-  height: 100
+  width: 50,
+  height: 50
 };
 
 var wayPoints = []; //locations were this client moved the box to
@@ -66,6 +66,7 @@ var wordTargetRect = { x: 0, y: 0, width: 0, height: 0 }; //bounding box around 
 
 var deltaX, deltaY; //location where mouse is pressed
 var canvas = document.getElementById("canvas1"); //our drawing canvas
+var canvas2 = document.getElementById("canvas2"); //our drawing canvas
 var fontPointSize = 18; //point size for word text
 var wordHeight = 20; //estimated height of a string in the editor
 var editorFont = "Arial"; //font for your editor
@@ -102,6 +103,7 @@ var drawCanvas = function() {
   context.fillRect(0, 0, canvas.width, canvas.height); //erase canvas
 
   context.font = "" + fontPointSize + "pt " + editorFont;
+  
   context.fillStyle = "cornflowerblue";
   context.strokeStyle = "blue";
 
@@ -126,6 +128,7 @@ var drawCanvas = function() {
       movingBox.height
     );
   }
+  
   //draw circle
   context.beginPath();
   context.arc(
@@ -145,6 +148,21 @@ var drawCanvas = function() {
     wordTargetRect.width,
     wordTargetRect.height
   );
+  
+  var context2 = canvas2.getContext("2d");
+
+  context2.fillStyle = "white";
+  context2.fillRect(0, 100, canvas2.width, canvas2.height); //erase canvas
+
+  context2.font = "" + fontPointSize + "pt " + editorFont;
+  
+  
+  //draw a box
+  context2.fillStyle = "red"
+  context2.fillRect(
+	100,100,100,100
+  )
+  context2.stroke();
 };
 
 function handleMouseDown(e) {
